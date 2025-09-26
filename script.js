@@ -1,25 +1,21 @@
-// Select elements
 const display = document.getElementById("display");
 const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 const resetBtn = document.getElementById("reset");
 const toggleBtn = document.getElementById("toggle-theme");
 
-// Variables for time
 let [hours, minutes, seconds] = [0, 0, 0];
 let timer = null;
 
-// Function to update display
 function updateDisplay() {
-  let h = hours < 10 ? "0" + hours : hours;
-  let m = minutes < 10 ? "0" + minutes : minutes;
-  let s = seconds < 10 ? "0" + seconds : seconds;
+  const h = hours < 10 ? "0" + hours : hours;
+  const m = minutes < 10 ? "0" + minutes : minutes;
+  const s = seconds < 10 ? "0" + seconds : seconds;
   display.innerText = `${h}:${m}:${s}`;
 }
 
-// Start stopwatch
 function start() {
-  if (timer !== null) return; // Prevent multiple timers
+  if (timer !== null) return;
   timer = setInterval(() => {
     seconds++;
     if (seconds === 60) {
@@ -34,13 +30,11 @@ function start() {
   }, 1000);
 }
 
-// Stop stopwatch
 function stop() {
   clearInterval(timer);
   timer = null;
 }
 
-// Reset stopwatch
 function reset() {
   clearInterval(timer);
   timer = null;
@@ -48,17 +42,17 @@ function reset() {
   updateDisplay();
 }
 
-// Theme toggle
+// Theme toggle handler
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+  // change icon text
   if (document.body.classList.contains("dark")) {
-    toggleBtn.innerText = "☀️ Light Mode";
+    toggleBtn.innerText = "☀️";
   } else {
-    toggleBtn.innerText = "🌙 Dark Mode";
+    toggleBtn.innerText = "🌙";
   }
 });
 
-// Event listeners
 startBtn.addEventListener("click", start);
 stopBtn.addEventListener("click", stop);
 resetBtn.addEventListener("click", reset);
