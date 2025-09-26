@@ -1,0 +1,81 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Light Mode (Default) */
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Timer display */
+#display {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 20px 0;
+  letter-spacing: 2px;
+  color: #333;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#start { background: #28a745; color: #fff; }
+#stop { background: #dc3545; color: #fff; }
+#reset { background: #007bff; color: #fff; }
+#toggle-theme { background: #444; color: #fff; }
+
+button:hover { opacity: 0.85; }
+
+/* 🌙 Dark Mode */
+body.dark {
+  background: linear-gradient(135deg, #121212, #323232);
+  color: #f1f1f1;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.dark #display {
+  color: #f1f1f1;
+}
+
+body.dark button {
+  border: 1px solid #444;
+}
